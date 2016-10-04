@@ -1,0 +1,23 @@
+<div> THE FRONTEND TEMPLATE LOADS </div>
+
+<div class="container" ng-controller="CatalogueController as card">
+    <div class="jumbotron">
+        <h1 align="center">Catalogue Application</h1>
+        <br>
+        <div id="card-form" class="row">
+            <div class="col-sm-8 col-sm-offset-2 text-center">
+
+            </div>
+        </div>
+    </div>
+    <div id="card-list" class="row">
+        <div class="col-sm-4 col-sm-offset-4">
+            <div class="checkbox" ng-repeat="singleCard in cards">
+                <label> {{ singleCard }}
+                    <input type="checkbox" ng-click="card.removeCards(singleCard)">
+                    {{ singleCard.value }}
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
