@@ -2,8 +2,8 @@ catalogueApp.service('CatalogueService', function($http, $q) {
   return {
     'getCards': function() {
       var defer = $q.defer();
-      $http.get('/Card/getCards').success(function(resp){
-        defer.resolve(resp);
+      $http.get('/Card').success(function(res){
+        defer.resolve(res);
       }).error( function(err) {
         defer.reject(err);
       });
@@ -11,8 +11,8 @@ catalogueApp.service('CatalogueService', function($http, $q) {
     },
     'addCards': function(card) {
       var defer = $q.defer();
-      $http.post('/Card/addCards', card).success(function(resp){
-        defer.resolve(resp);
+      $http.post('/Card/addCards', card).success(function(res){
+        defer.resolve(res);
       }).error( function(err) {
         defer.reject(err);
       });
@@ -20,8 +20,8 @@ catalogueApp.service('CatalogueService', function($http, $q) {
     },
     'removeCards': function(card) {
       var defer = $q.defer();
-      $http.post('/cards/removeCards', card).success(function(resp){
-        defer.resolve(resp);
+      $http.delete('/Card/:id', card).success(function(res){
+        defer.resolve(res);
       }).error( function(err) {
         defer.reject(err);
       });

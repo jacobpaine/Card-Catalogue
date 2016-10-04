@@ -35,9 +35,10 @@ module.exports.routes = {
   '/': {
     view: 'homepage'
   },
-'put /Card/:id': 'CardController.update',
-'post /Card': 'CardController.create',
-'delete /Card/:id': 'CardController.delete'
+// 'put /Card/:id': 'CardController.updateCards',
+'get /Card': 'CatalogueController.getCards',
+'post /Card/:id': 'CatalogueController.addCards',
+'delete /Card/:id?': 'CatalogueController.destroy'
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *

@@ -5,29 +5,28 @@ module.exports = {
       next(cards);
     });
   },
-  addCards: function(req, res) {
-    var params = req.params.all()
+  addCards: function(cardVal, next) {
+    console.log("cardVal: ", cardVal);
+    var params = cardVal;
     Card.create({
-			title: params.title,
-			author: params.author,
-			synopsis: params.synopsis,
-			location: params.location,
-			year: params.year,
-			isbn: params.isbn,
-			keyword: params.keyword,
-			copyNumber: params.copyNumber
-		}).exec(function createCB(err,created){
+      title: params.title,
+      author: params.author,
+      synopsis: params.synopsis,
+      location: params.location,
+      year: params.year,
+      isbn: params.isbn,
+      keyword: params.keyword,
+      copyNumber: params.copyNumber
+    }).exec(function(err, card) {
       if(err) throw err;
-			return res.json({
-				notice: 'Created user with title ' + created.title + 'and ' + created.author
-      }).exec(function(err, card) {
-        if(err) throw err;
-        res(card);
-      });
-    })
+      next(card);
+    });
   },
   removeCards: function(cardVal, next) {
-    Card.destroy({value: cardVal}).exec(function(err, card) {
+    var markedForDestroy = Card.findOne(cardVal);
+    Card.destroy({
+      id: Card.id
+    }).exec(function(err, card) {
       if(err) throw err;
       next(card);
     });

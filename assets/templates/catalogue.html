@@ -1,23 +1,32 @@
-<div> THE FRONTEND TEMPLATE LOADS </div>
 
 <div class="container" ng-controller="CatalogueController as card">
     <div class="jumbotron">
         <h1 align="center">Catalogue Application</h1>
         <br>
         <div id="card-form" class="row">
-            <div class="col-sm-8 col-sm-offset-2 text-center">
-
-            </div>
+          <div class="col-sm-8 col-sm-offset-2 text-center">
+          <input type="text" ng-model="formData.title" placeholder="title"></input>
+          <input type="text" ng-model="formData.author" placeholder="author"></input>
+          <input type="text" ng-model="formData.synopsis" placeholder="synopsis"></input>
+          <input type="text" ng-model="formData.location" placeholder="location"></input>
+          <input type="text" ng-model="formData.year" placeholder="year"></input>
+          <input type="text" ng-model="formData.isbn" placeholder="isbn"></input>
+          <input type="text" ng-model="formData.keyword" placeholder="keyword"></input>
+          <input type="text" ng-model="formData.copyNumber" placeholder="copyNumber"></input>
+          
+          <button ng-click="addCards()">Add Cards</button>
+          </div>
         </div>
     </div>
     <div id="card-list" class="row">
         <div class="col-sm-4 col-sm-offset-4">
             <div class="checkbox" ng-repeat="singleCard in cards">
-                <label> {{ singleCard }}
-                    <input type="checkbox" ng-click="card.removeCards(singleCard)">
+                    <input type="checkbox" ng-click="removeCards(singleCard)">
                     {{ singleCard.value }}
                 </label>
+                {{ singleCard }}
             </div>
+            <label>
         </div>
     </div>
 </div>
