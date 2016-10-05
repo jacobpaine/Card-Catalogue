@@ -1,12 +1,23 @@
 module.exports = {
   getCards: function(next) {
     Card.find().exec(function(err, cards) {
-      if(err) throw err;
+      // if(err) throw err;
       next(cards);
     });
   },
+
+  findCard: function(options, done) {
+    Card.findOne({
+      id: options.id
+    }).exec(function (err, card) {
+      // If an unexpected error occurred...
+      if (err) { return done(err); }
+      // Otherwise, it worked!
+      return done(card);
+    });
+  },
+
   addCards: function(cardVal, next) {
-    console.log("cardVal: ", cardVal);
     var params = cardVal;
     Card.create({
       title: params.title,
@@ -18,17 +29,13 @@ module.exports = {
       keyword: params.keyword,
       copyNumber: params.copyNumber
     }).exec(function(err, card) {
-      if(err) throw err;
+      // if(err) throw err;
       next(card);
     });
   },
   removeCards: function(cardVal, next) {
-    var markedForDestroy = Card.findOne(cardVal);
-    Card.destroy({
-      id: Card.id
-    }).exec(function(err, card) {
+    Card.destroy({id: cardVal.id}).exec(function (err){
       if(err) throw err;
-      next(card);
     });
   }
-};
+}

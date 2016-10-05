@@ -1,7 +1,6 @@
 'use strict';
 
 var catalogueApp = angular.module('catalogueApp', ['ngRoute']);
-console.log("app.js happens");
 catalogueApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.when('/', {
@@ -29,8 +28,8 @@ catalogueApp.controller('CatalogueController', ['$scope', '$rootScope', 'Catalog
   }
 
   $scope.removeCards = function(card) {
-    CatalogueService.removeCards(card).then(function(response) {
-      $scope.cards.splice($scope.cards.indexOf(card), 1)
+      CatalogueService.removeCards(card).then(function(response) {
+        $scope.cards.splice($scope.cards.indexOf(card), 1);
     });
   }
 }]);

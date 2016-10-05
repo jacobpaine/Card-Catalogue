@@ -20,7 +20,7 @@ catalogueApp.service('CatalogueService', function($http, $q) {
     },
     'removeCards': function(card) {
       var defer = $q.defer();
-      $http.delete('/Card/:id', card).success(function(res){
+      $http.delete('/Card/' + card.id).success(function(res){
         defer.resolve(res);
       }).error( function(err) {
         defer.reject(err);
