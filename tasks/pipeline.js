@@ -36,6 +36,7 @@ var jsFilesToInject = [
   '/bower_components/angular/angular.js',
   '/bower_components/angular-route/angular-route.js',
   '/bower_components/bootstrap/dist/js/boostrap.js',
+
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
   'js/**/*.js'

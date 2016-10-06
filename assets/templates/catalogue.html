@@ -1,6 +1,6 @@
 
-<div class="container" ng-controller="CatalogueController as card">
-    <div class="jumbotron">
+<div ng-controller="CatalogueController as card">
+    <div class="container-fluid jumbotron">
         <h1 align="center">Catalogue Application</h1>
         <br>
         <div id="card-form" class="row">
@@ -13,20 +13,35 @@
           <input type="text" ng-model="formData.isbn" placeholder="isbn"></input>
           <input type="text" ng-model="formData.keyword" placeholder="keyword"></input>
           <input type="text" ng-model="formData.copyNumber" placeholder="copyNumber"></input>
-          
+
           <button ng-click="addCards()">Add Cards</button>
           </div>
         </div>
     </div>
-    <div id="card-list" class="row">
-        <div class="col-sm-4 col-sm-offset-4">
-            <div class="checkbox" ng-repeat="singleCard in cards">
-                    <input type="checkbox" ng-click="removeCards(singleCard)">
-                    {{ singleCard.value }}
-                </label>
-                {{ singleCard }}
-            </div>
-            <label>
-        </div>
+    <div id="card-list">
+      <table class="col-md-3 table table-striped table-responsive">
+        <tr>
+          <th>Title: </th>
+          <th>Author: </th>
+          <th>Synopsis: </th>
+          <th>Location: </th>
+          <th>Year: </th>
+          <th>ISBN: </th>
+          <th>Keyword: </th>
+          <th>Number of copies: </th>
+          <th>Remove from database </th>
+        </tr>
+          <tr ng-repeat="singleCard in cards">
+              <td class="title">{{ singleCard.title }}</td>
+              <td class="author">{{ singleCard.author }}</td>
+              <td class="synopsis">{{ singleCard.synopsis }}</td>
+              <td class="location">{{ singleCard.location }}</td>
+              <td class="year">{{ singleCard.year }}</td>
+              <td class="isbn">{{ singleCard.isbn }}</td>
+              <td class="keyword">{{ singleCard.keyword }}</td>
+              <td class="copyNumber">{{ singleCard.copyNumber }}</td>
+              <td><input class="btn btn-warning" type="button" ng-click="removeCards(singleCard)" onClick="window.location.reload()"></td>
+          </tr>
+        </table>
     </div>
 </div>
