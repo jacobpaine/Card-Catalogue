@@ -16,15 +16,20 @@ catalogueApp.controller('CatalogueController', ['$scope', '$rootScope', 'Catalog
   $scope.formData = {};
   $scope.cards = [];
 
-  CatalogueService.getCards().then(function(response) {
-    $scope.cards = response;
-  });
-
   $scope.addCards = function() {
     CatalogueService.addCards($scope.formData).then(function(response) {
       $scope.cards.push($scope.formData)
       $scope.formData = {};
     });
+  }
+
+  CatalogueService.getCards().then(function(response) {
+    $scope.cards = response;
+  });
+
+  $scope.update = function(data) {
+    console.log("Blur fires");
+    console.log("data to update: ", data);
   }
 
   $scope.removeCards = function(card) {
@@ -35,23 +40,3 @@ catalogueApp.controller('CatalogueController', ['$scope', '$rootScope', 'Catalog
 
 
 }]);
-
-app.directive("contenteditable", function() {
-  return {
-    require: "ngModel",
-    link: function(scope, element, attrs, ngModel) {
-
-      function read() {
-        ngModel.$setViewValue(element.html());
-      }
-
-      ngModel.$render = function() {
-        element.html(ngModel.$viewValue || "");
-      };
-
-      element.bind("blur keyup change", function() {
-        scope.$apply(read);
-      });
-    }
-  };
-});

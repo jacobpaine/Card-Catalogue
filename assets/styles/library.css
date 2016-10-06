@@ -1,0 +1,9 @@
+#search-bar {
+  float: right;
+}
+
+.table-inputs {
+  outline: none;
+  border: none !important;  /*box-shadow: none;*/
+  background: transparent !important;
+}
