@@ -30,7 +30,6 @@ module.exports = {
       copyNumber: params.copyNumber
     }).exec(function(err, card) {
       if(err) throw err;
-      console.log("card in back end service: ", card);
       next(card);
     });
   },

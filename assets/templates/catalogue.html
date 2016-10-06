@@ -1,46 +1,68 @@
 
 <div ng-controller="CatalogueController as card">
-    <div class="container-fluid jumbotron">
-        <h1 align="center">Catalogue Application</h1>
-        <br>
-        <div id="card-form" class="row">
-          <div class="col-sm-8 col-sm-offset-2 text-center">
-          <input class="form-control" type="text" ng-model="formData.title" placeholder="title"></input>
-          <input class="form-control" type="text" ng-model="formData.author" placeholder="author"></input>
-          <input class="form-control" ng-model="formData.synopsis"  placeholder="synopsis"></input>
-          <input  class="form-control" type="text" ng-model="formData.location" placeholder="location"></input>
-          <input class="form-control" type="number" ng-model="formData.year" placeholder="year"></input>
-          <input class="form-control" type="text" ng-model="formData.isbn" placeholder="isbn"></input>
-          <input class="form-control" type="text" ng-model="formData.keyword" placeholder="keyword"></input>
-          <input class="form-control" type="number" ng-model="formData.copyNumber" placeholder="copyNumber"></input>
-          <button ng-click="addCards()">Add Text</button>
+  <div class="container-fluid jumbotron">
+    <h1 align="center">Catalogue Application</h1>
+    <br>
+
+    <div id="card-form" class="row">
+      <div class="col-sm-6 col-sm-offset-3 text-center">
+        <input class="form-control" type="text" ng-model="formData.title" placeholder="Title"></input>
+        <input class="form-control" type="text" ng-model="formData.author" placeholder="Author"></input>
+        <input class="form-control" ng-model="formData.synopsis"  placeholder="Synopsis"></input>
+        <input  class="form-control" type="text" ng-model="formData.location" placeholder="Location"></input>
+        <input class="form-control" type="number" ng-model="formData.year" placeholder="Year"></input>
+        <input class="form-control" type="text" ng-model="formData.isbn" placeholder="ISBN"></input>
+        <input class="form-control" type="text" ng-model="formData.keyword" placeholder="Keywords"></input>
+        <input class="form-control" type="number" ng-model="formData.copyNumber" placeholder="Number of copies"></input>
+        <button ng-click="addCards()">Add to Library</button>
+      </div>
+    </div>
+  </div>
+  <div id="card-list">
+    <div class="container">
+      <div class="row">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4>
+              Items in Library
+              <span class="pull-right">Search: <input type="text" ng-model="cardFilter"></span>
+            </h4>
           </div>
+
+          <table class="table table-fixed table-striped table-hover table-condensed table-responsive table-bordered">
+
+            <thead>
+              <tr>
+                <th class="title col-sm-2 col-sm-2 col-md-2 col-lg-2 col-lg-2">Title: </th>
+                <th class="author col-sm-2 col-md-2 col-lg-2">Author: </th>
+                <th class="synopsis col-sm-4 col-md-4 col-lg-4">Synopsis: </th>
+                <th class="location col-sm-1 col-md-1 col-lg-1">Location: </th>
+                <th class="year col-sm-1 col-md-1 col-lg-1">Year: </th>
+                <th class="isbn col-sm-1 col-md-1 col-lg-1">ISBN: </th>
+                <th class="keyword col-sm-3 col-md-3 col-lg-3">Keyword: </th>
+                <th class="copyNumber col-sm-2 col-md-2 col-lg-2">Copies: </th>
+                <th class="editButton col-sm-1 col-md-1 col-lg-1">Edit </th>
+                <th class="deleteButton col-sm-1 col-md-1 col-lg-1">Delete </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="singleCard in cards | filter:cardFilter">
+                <div contenteditable="true">
+                  <td class="title" contenteditable="true">{{ singleCard.title }}</td>
+                  <td class="author" contenteditable="true">{{ singleCard.author }}</td>
+                  <td class="synopsis" contenteditable="true">{{ singleCard.synopsis }}</td>
+                  <td class="location" contenteditable="true">{{ singleCard.location }}</td>
+                  <td class="year" contenteditable="true">{{ singleCard.year }}</td>
+                  <td class="isbn" contenteditable="true">{{ singleCard.isbn }}</td>
+                  <td class="keyword" contenteditable="true">{{ singleCard.keyword }}</td>
+                  <td class="copyNumber" contenteditable="true">{{ singleCard.copyNumber }}</td>
+                  <td class="editButton"><input class="btn btn-warning" type="button" ng-click="toggleEdit()"></td>
+                  <td class="deleteButton"><input class="btn btn-danger" type="button" ng-click="removeCards(singleCard)"></td>
+                </div>
+              </tr>
+            </tbody>
+          </table>
         </div>
-    </div>
-    <div id="card-list">
-      <table class="col-md-3 table table-striped table-responsive">
-        <tr>
-          <th>Title: </th>
-          <th>Author: </th>
-          <th>Synopsis: </th>
-          <th>Location: </th>
-          <th>Year: </th>
-          <th>ISBN: </th>
-          <th>Keyword: </th>
-          <th>Number of copies: </th>
-          <th>Remove from database </th>
-        </tr>
-          <tr ng-repeat="singleCard in cards">
-              <td class="title">{{ singleCard.title }}</td>
-              <td class="author">{{ singleCard.author }}</td>
-              <td class="synopsis">{{ singleCard.synopsis }}</td>
-              <td class="location">{{ singleCard.location }}</td>
-              <td class="year">{{ singleCard.year }}</td>
-              <td class="isbn">{{ singleCard.isbn }}</td>
-              <td class="keyword">{{ singleCard.keyword }}</td>
-              <td class="copyNumber">{{ singleCard.copyNumber }}</td>
-              <td><input class="btn btn-warning" type="button" ng-click="removeCards(singleCard)" onClick="window.location.reload()"></td>
-          </tr>
-        </table>
-    </div>
+      </div>
+  </div>
 </div>

@@ -19,7 +19,6 @@
   },
 
   addCards: function(req, res) {
-    console.log("backend req.body", req.body);
 		var cardVal = (req.body) ? req.body : undefined
     CatalogueService.addCards(cardVal, function(success){
       res.json(success);
