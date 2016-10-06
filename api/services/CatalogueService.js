@@ -29,7 +29,8 @@ module.exports = {
       keyword: params.keyword,
       copyNumber: params.copyNumber
     }).exec(function(err, card) {
-      // if(err) throw err;
+      if(err) throw err;
+      console.log("card in back end service: ", card);
       next(card);
     });
   },

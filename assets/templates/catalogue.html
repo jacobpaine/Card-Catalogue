@@ -5,16 +5,15 @@
         <br>
         <div id="card-form" class="row">
           <div class="col-sm-8 col-sm-offset-2 text-center">
-          <input type="text" ng-model="formData.title" placeholder="title"></input>
-          <input type="text" ng-model="formData.author" placeholder="author"></input>
-          <input type="text" ng-model="formData.synopsis" placeholder="synopsis"></input>
-          <input type="text" ng-model="formData.location" placeholder="location"></input>
-          <input type="text" ng-model="formData.year" placeholder="year"></input>
-          <input type="text" ng-model="formData.isbn" placeholder="isbn"></input>
-          <input type="text" ng-model="formData.keyword" placeholder="keyword"></input>
-          <input type="text" ng-model="formData.copyNumber" placeholder="copyNumber"></input>
-
-          <button ng-click="addCards()">Add Cards</button>
+          <input class="form-control" type="text" ng-model="formData.title" placeholder="title"></input>
+          <input class="form-control" type="text" ng-model="formData.author" placeholder="author"></input>
+          <input class="form-control" ng-model="formData.synopsis"  placeholder="synopsis"></input>
+          <input  class="form-control" type="text" ng-model="formData.location" placeholder="location"></input>
+          <input class="form-control" type="number" ng-model="formData.year" placeholder="year"></input>
+          <input class="form-control" type="text" ng-model="formData.isbn" placeholder="isbn"></input>
+          <input class="form-control" type="text" ng-model="formData.keyword" placeholder="keyword"></input>
+          <input class="form-control" type="number" ng-model="formData.copyNumber" placeholder="copyNumber"></input>
+          <button ng-click="addCards()">Add Text</button>
           </div>
         </div>
     </div>
