@@ -25,7 +25,6 @@
     "sails-mysql": "^0.11.5"
   },
   "scripts": {
-    "debug": "node debug app.js",
     "start": "sails lift",
     "postinstall": "bower install"
   },
