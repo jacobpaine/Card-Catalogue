@@ -30,10 +30,11 @@ var jsFilesToInject = [
   'js/dependencies/sails.io.js',
 
   // Dependencies like jQuery, or Angular are brought in here
-  '/bower_components/angular/angular.js',
   'js/dependencies/**/*.js',
+  'bower_components/angular/angular.js',
   '/bower_components/jquery/dist/jquery.js',
   '/bower_components/angular-route/angular-route.js',
+  '/bower_components/tether/dist/js/tether.min.js',
   '/bower_components/bootstrap/dist/js/bootstrap.js',
 
   // All of the rest of your client-side js files
