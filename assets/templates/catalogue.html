@@ -13,7 +13,7 @@
         <input class="form-control" type="text" ng-model="formData.isbn" placeholder="ISBN"></input>
         <input class="form-control" type="text" ng-model="formData.keyword" placeholder="Keywords"></input>
         <input class="form-control" type="number" ng-model="formData.copyNumber" placeholder="Number of copies"></input>
-        <button ng-click="addCards()">Add to Library</button>
+        <button id="add-card-button" ng-click="addCards()">Add to Library</button>
       </div>
     </div>
   </div>
@@ -26,51 +26,47 @@
               <h4>Items in Library</h4>
               <span id="search-bar">Search: <input type="text" ng-model="cardFilter"></span>
             </div>
-
             <div class="panel-body">
               <div class="table-responsive">
-
-            <table class="table table-hover table-striped table-bordered">
-              <thead>
-                <tr>
-                  <th scope="col" class="title">Title: </th>
-                  <th scope="col" class="author">Author: </th>
-                  <th scope="col" class="synopsis">Synopsis: </th>
-                  <th scope="col" class="location">Location: </th>
-                  <th scope="col" class="year">Year: </th>
-                  <th scope="col" class="isbn">ISBN: </th>
-                  <th scope="col" class="keyword">Keyword: </th>
-                  <th scope="col" class="copyNumber">Copies: </th>
-                  <th scope="col" class="deleteButton">Delete </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr ng-repeat="singleCard in cards | filter:cardFilter">
-                    <td scope="row" class="title-data">
-                      <input ng-model="singleCard.title" ng-blur="update(singleCard)" ng-bind="singleCard.title" class="table-inputs"></input></td>
-                    <td scope="row" class="author-data">
-                      <input ng-model="singleCard.author" ng-blur="update(singleCard)" ng-bind="singleCard.author" class="table-inputs"></input> </td>
-                    <td scope="row" class="synopsis-data">
-                      <textarea ng-model="singleCard.synopsis" ng-blur="update(singleCard)" ng-bind="singleCard.synopsis" class="table-inputs"></textarea></td>
-                    <td scope="row" class="location-data">
-                      <input ng-model="singleCard.location" ng-blur="update(singleCard)" ng-bind="singleCard.location" class="table-inputs"></input></td>
-                    <td scope="row" class="year-data">
-                      <input ng-model="singleCard.year" ng-blur="update(singleCard)" ng-bind="singleCard.year" class="table-inputs"></input></td>
-                    <td scope="row" class="isbn-data">
-                      <input ng-model="singleCard.isbn" ng-blur="update(singleCard)" ng-bind="singleCard.isbn" class="table-inputs"></input></td>
-                    <td scope="row" class="keyword-data">
-                      <input ng-model="singleCard.keyword" ng-blur="update(singleCard)" ng-bind="singleCard.keyword" class="table-inputs"></input></td>
-                    <td scope="row" class="copyNumber-data">
-                      <input ng-model="singleCard.copyNumber" ng-blur="update(singleCard)" ng-bind="singleCard.copyNumber" class="table-inputs"></input></td>
-                    <td scope="row" class="deleteButton-data">
-                      <input class="btn btn-danger" type="button" ng-click="removeCards(singleCard)"></td>
-                </tr>
-              </tbody>
-            </table>
-
+                <table class="table table-hover table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th class="title">Title: </th>
+                      <th class="author">Author: </th>
+                      <th class="synopsis">Synopsis: </th>
+                      <th class="location">Location: </th>
+                      <th class="year">Year: </th>
+                      <th class="isbn">ISBN: </th>
+                      <th class="keyword">Keywords: </th>
+                      <th class="copyNumber">Copies: </th>
+                      <th class="deleteButton">Delete </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="singleCard in cards | filter:cardFilter">
+                        <td class="title-data">
+                          <input ng-model="singleCard.title" ng-blur="update(singleCard)" ng-bind="singleCard.title" class="table-inputs"></input></td>
+                        <td class="author-data">
+                          <input ng-model="singleCard.author" ng-blur="update(singleCard)" ng-bind="singleCard.author" class="table-inputs"></input> </td>
+                        <td class="synopsis-data">
+                          <textarea ng-model="singleCard.synopsis" ng-blur="update(singleCard)" ng-bind="singleCard.synopsis" class="table-inputs"></textarea></td>
+                        <td class="location-data">
+                          <input ng-model="singleCard.location" ng-blur="update(singleCard)" ng-bind="singleCard.location" class="table-inputs"></input></td>
+                        <td class="year-data">
+                          <input ng-model="singleCard.year" ng-blur="update(singleCard)" ng-bind="singleCard.year" class="table-inputs"></input></td>
+                        <td class="isbn-data">
+                          <input ng-model="singleCard.isbn" ng-blur="update(singleCard)" ng-bind="singleCard.isbn" class="table-inputs"></input></td>
+                        <td class="keyword-data">
+                          <input ng-model="singleCard.keyword" ng-blur="update(singleCard)" ng-bind="singleCard.keyword" class="table-inputs"></input></td>
+                        <td class="copyNumber-data">
+                          <input ng-model="singleCard.copyNumber" ng-blur="update(singleCard)" ng-bind="singleCard.copyNumber" class="table-inputs"></input></td>
+                        <td class="deleteButton-data">
+                          <input class="btn btn-danger" type="button" ng-click="removeCards(singleCard)"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
-          </div>
-
           </div>
         </div>
       </div>
