@@ -1,30 +1,47 @@
 
 <div ng-controller="CatalogueController as card">
   <div class="container-fluid">
-    <h1 align="center">Catalogue Application</h1>
     <br>
-    <div id="card-form" class="row">
-      <div class="col-sm-6 col-sm-offset-3 text-center">
-        <input class="form-control" type="text" ng-model="formData.title" placeholder="Title"></input>
-        <input class="form-control" type="text" ng-model="formData.author" placeholder="Author"></input>
-        <input class="form-control" ng-model="formData.synopsis"  placeholder="Synopsis"></input>
-        <input  class="form-control" type="text" ng-model="formData.location" placeholder="Location"></input>
-        <input class="form-control" type="number" ng-model="formData.year" placeholder="Year"></input>
-        <input class="form-control" type="text" ng-model="formData.isbn" placeholder="ISBN"></input>
-        <input class="form-control" type="text" ng-model="formData.keyword" placeholder="Keywords"></input>
-        <input class="form-control" type="number" ng-model="formData.copyNumber" placeholder="Number of copies"></input>
+    <form id="card-form" class="form-inline text-center">
+      <div class="form-group form-group-lg jumbotron text-center">
+        <h1 align="center">Catalogue Application</h1>
+        <br>
+        <label class="control-label">Title:
+          <input class="form-control" type="text" ng-model="formData.title" placeholder="Title"></input>
+        </label>
+        <label class="control-label">Author:
+          <input class="form-control" type="text" ng-model="formData.author" placeholder="Author"></input>
+        </label>
+        <label class="control-label">Synopsis:
+          <textarea id="add-card-synopsis" class="form-control" rows="1" ng-model="formData.synopsis"  placeholder="Synopsis"></textarea>
+        </label>
+        <label class="control-label">Location:
+          <input  class="form-control" type="text" ng-model="formData.location" placeholder="Location"></input>
+        </label>
+        <label class="control-label">Year:
+          <input class="form-control" type="number" ng-model="formData.year" placeholder="Year"></input>
+        </label>
+        <label class="control-label">ISBN:
+          <input class="form-control" type="text" ng-model="formData.isbn" placeholder="ISBN"></input>
+        </label>
+        <label class="control-label">Keywords:
+          <input class="form-control" type="text" ng-model="formData.keyword" placeholder="Keywords"></input>
+        </label>
+        <label class="control-label">Number of copies:
+          <input class="form-control" type="number" ng-model="formData.copyNumber" placeholder="Number of copies"></input>
+        </label>
+        <br>
         <button id="add-card-button" ng-click="addCards()">Add to Library</button>
       </div>
-    </div>
+    </form>
   </div>
   <div id="card-list">
     <div class="container">
       <div class="row">
         <div class="panel panel-primary">
           <div class="panel-heading">
-            <div class="panel-title">
-              <h4>Items in Library</h4>
-              <span id="search-bar">Search: <input type="text" ng-model="cardFilter"></span>
+            <div class="col-sm-4 col-md-5 col-lg-5">
+              Search: <input type="text" ng-model="cardFilter">
             </div>
             <div class="panel-body">
               <div class="table-responsive">

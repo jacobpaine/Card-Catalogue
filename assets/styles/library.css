@@ -1,6 +1,17 @@
 
+#add-card-button {
+  margin-left: 15%;
+  width: 66%;
+  background-color: green;
+}
+
+.card-form{
+  align-content: center;
+  color: red;
+}
+
 #search-bar {
-  float: right;
+  align-items: flex-end;
 }
 
 .author-data {
