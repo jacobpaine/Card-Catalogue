@@ -2,7 +2,25 @@
   float: right;
 }
 
+.author-data {
+  width: 30%;
+}
+
+.title-data{
+  width: 30%;
+}
+
+.synopsis-data {
+  width: 50%;
+}
+
+.keyword-data {
+  width: 40%;
+}
+
 .table-inputs {
+  font-size: 12px;
+  width: 100%;
   outline: none;
   border: none !important;  /*box-shadow: none;*/
   background: transparent !important;

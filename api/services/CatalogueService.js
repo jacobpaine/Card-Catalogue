@@ -17,8 +17,7 @@ module.exports = {
     });
   },
 
-  addCards: function(cardVal, next) {
-    var params = cardVal;
+  addCards: function(params, next) {
     Card.create({
       title: params.title,
       author: params.author,
@@ -33,6 +32,23 @@ module.exports = {
       next(card);
     });
   },
+
+  updateCard: function(params, next) {
+    Card.update({id: params.id},{
+      title: params.title,
+      author: params.author,
+      synopsis: params.synopsis,
+      location: params.location,
+      year: params.year,
+      isbn: params.isbn,
+      keyword: params.keyword,
+      copyNumber: params.copyNumber
+    }).exec(function(err, card) {
+      if(err) throw err;
+      next(card);
+    });
+  },
+
   removeCards: function(cardVal, next) {
     Card.destroy({id: cardVal.id}).exec(function (err){
       if(err) throw err;

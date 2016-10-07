@@ -27,16 +27,15 @@ catalogueApp.controller('CatalogueController', ['$scope', '$rootScope', 'Catalog
     $scope.cards = response;
   });
 
-  $scope.update = function(data) {
-    console.log("Blur fires");
-    console.log("data to update: ", data);
+  $scope.update = function(card) {
+    CatalogueService.updateCard(card).then(function(response) {
+    });
   }
 
   $scope.removeCards = function(card) {
       CatalogueService.removeCards(card).then(function(response) {
-        $scope.cards.splice($scope.cards.indexOf(card), 1);
     });
+    window.location.reload();
   }
-
 
 }]);

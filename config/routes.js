@@ -38,6 +38,7 @@ module.exports.routes = {
 // 'put /Card/:id': 'CardController.updateCards',
 'get /Card': 'CatalogueController.getCards',
 'get /Card/:id': 'CatalogueController.findCard',
+'put /Card/:id': 'CatalogueController.updateCard',
 'post /Card/:id': 'CatalogueController.addCards',
 'delete /Card/:id': 'CatalogueController.removeCards'
   /***************************************************************************

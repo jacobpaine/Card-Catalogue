@@ -25,6 +25,13 @@
     })
   },
 
+  updateCard: function(req, res) {
+    var cardVal = (req.body) ? req.body : undefined
+    CatalogueService.updateCard(cardVal, function(success){
+      res.json(success);
+    })
+  },
+
   removeCards: function(req, res) {
     CatalogueService.removeCards(req.params, function(card){
       res.send("Card removed: "+ card);
