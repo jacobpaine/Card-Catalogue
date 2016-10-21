@@ -30,17 +30,17 @@ var jsFilesToInject = [
   'js/dependencies/sails.io.js',
 
   // Dependencies like jQuery, or Angular are brought in here
-  'js/dependencies/**/*.js',
+  'bower_components/dist/jquery.min.js',
   'bower_components/angular/angular.js',
-  'bower_components/jquery/dist/jquery.js',
   'bower_components/angular-route/angular-route.js',
-  'bower_components/tether/dist/js/tether.min.js',
   'bower_components/bootstrap/dist/js/bootstrap.js',
+  'bower_components/js/tether.min.js',
 
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
   'js/**/*.js'
 ];
+
 
 // Client-side HTML templates are injected using the sources below
 // The ordering of these templates shouldn't matter.
