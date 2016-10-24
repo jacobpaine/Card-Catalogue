@@ -10,7 +10,7 @@ You will need [Node](https://nodejs.org/en/)and [Sails](http://sailsjs.org/get-s
 First, open your Terminal and clone the directory somewhere convenient.
 
 `npm install`
-Second, cd into the directory and type 'npm install' in the root file.
+Second, 'cd' into the directory 'Card-Catalogue' and type 'npm install' in the root file.
 
 `sails lift`
 Type 'sails lift' in the same root directory.
