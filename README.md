@@ -4,7 +4,7 @@ A card catalogue using the Sails realtime MVC framework. Also using MySQL, Expre
 
 ## Installation
 
-You will need [Node](https://nodejs.org/en/)and [Sails](http://sailsjs.org/get-started) to run this application.
+You will need [Node](https://nodejs.org/en/) and [Sails](http://sailsjs.org/get-started) to run this application.
 
 `git clone https://github.com/jacobpaine/Card-Catalogue.git`
 First, open your Terminal and clone the directory somewhere convenient.
